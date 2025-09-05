@@ -16,25 +16,24 @@ Task 4:
 // Eduardo Tambris Roblero
 // September 4, 2025
 // Linear and Binary Search- Activity 2
+
 #include <iostream>
 #include <vector>
 #include <algorithm>
 
 using namespace std;
 
-// Function to perform a linear search and count the steps
 int linearSearch(const vector<int>& arr, int target, int& steps) {
     steps = 0;
     for (int i = 0; i < arr.size(); ++i) {
         steps++;
         if (arr[i] == target) {
-            return i; // Return the index where the target was found
+            return i;
         }
     }
-    return -1; // Return -1 if the target is not found
+    return -1;
 }
 
-// Function to perform a binary search and count the steps
 int binarySearch(const vector<int>& arr, int target, int& steps) {
     steps = 0;
     int left = 0;
@@ -45,15 +44,15 @@ int binarySearch(const vector<int>& arr, int target, int& steps) {
         int mid = left + (right - left) / 2;
 
         if (arr[mid] == target) {
-            return mid; // Target found
+            return mid;
         }
         if (arr[mid] < target) {
-            left = mid + 1; // Target is in the right half
+            left = mid + 1;
         } else {
-            right = mid - 1; // Target is in the left half
+            right = mid - 1;
         }
     }
-    return -1; // Target not found
+    return -1;
 }
 
 int main() {
@@ -61,7 +60,6 @@ int main() {
     int target = 8;
     int steps;
 
-    // Linear Search
     int linearIndex = linearSearch(data, target, steps);
     if (linearIndex != -1) {
         cout << "Linear search: Found " << target << " at index " << linearIndex << " in " << steps << " steps." << endl;
@@ -71,7 +69,6 @@ int main() {
 
     cout << "-----------------------------------" << endl;
 
-    // Binary Search
     int binaryIndex = binarySearch(data, target, steps);
     if (binaryIndex != -1) {
         cout << "Binary search: Found " << target << " at index " << binaryIndex << " in " << steps << " steps." << endl;
